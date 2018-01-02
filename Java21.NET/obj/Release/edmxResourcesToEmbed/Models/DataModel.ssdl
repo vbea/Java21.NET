@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityType Name="Article">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="category" Type="int" Nullable="false" />
+    <Property Name="artical" Type="text" />
+    <Property Name="cdate" Type="datetime" />
+    <Property Name="cuser" Type="varchar" MaxLength="50" />
+    <Property Name="edate" Type="datetime" />
+    <Property Name="euser" Type="varchar" MaxLength="50" />
+    <Property Name="comment" Type="datetime" />
+    <Property Name="cread" Type="int" Nullable="false" />
+    <Property Name="valid" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="catename" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="remark" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="aid" Type="int" Nullable="false" />
+    <Property Name="uid" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="star" Type="int" Nullable="false" />
+    <Property Name="comment" Type="varchar" MaxLength="200" />
+    <Property Name="cdate" Type="datetime" Nullable="false" />
+    <Property Name="device" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Feedback">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="suggest" Type="varchar" MaxLength="500" />
+    <Property Name="device" Type="varchar" MaxLength="50" />
+    <Property Name="contact" Type="varchar" MaxLength="100" />
+    <Property Name="cdate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Keys">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="keys" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="maxc" Type="int" Nullable="false" />
+    <Property Name="curr" Type="int" Nullable="false" />
+    <Property Name="ver" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="cdate" Type="datetime" Nullable="false" />
+    <Property Name="mark" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Knowledge">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="artical" Type="text" />
+    <Property Name="cdate" Type="datetime" />
+    <Property Name="cuser" Type="varchar" MaxLength="50" />
+    <Property Name="edate" Type="datetime" />
+    <Property Name="euser" Type="varchar" MaxLength="50" />
+    <Property Name="comment" Type="datetime" />
+    <Property Name="cread" Type="int" Nullable="false" />
+    <Property Name="valid" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Quotations">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sentence" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="cdate" Type="datetime" />
+    <Property Name="tips" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="psd" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="roles" Type="int" Nullable="false" />
+    <Property Name="nickname" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="gender" Type="bit" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="valid" Type="bit" Nullable="false" />
+    <Property Name="cdate" Type="datetime" Nullable="false" />
+    <Property Name="mark" Type="varchar" MaxLength="200" />
+    <Property Name="head" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Video">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="url" Type="varchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="DataModelStoreContainer">
+    <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Feedback" EntityType="Self.Feedback" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Keys" EntityType="Self.Keys" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Knowledge" EntityType="Self.Knowledge" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Quotations" EntityType="Self.Quotations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Video" EntityType="Self.Video" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

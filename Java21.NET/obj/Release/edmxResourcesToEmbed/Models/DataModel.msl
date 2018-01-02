@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DataModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="Comment">
+      <EntityTypeMapping TypeName="DataModel.Comment">
+        <MappingFragment StoreEntitySet="Comment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="aid" ColumnName="aid" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="star" ColumnName="star" />
+          <ScalarProperty Name="comment1" ColumnName="comment" />
+          <ScalarProperty Name="cdate" ColumnName="cdate" />
+          <ScalarProperty Name="device" ColumnName="device" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Feedback">
+      <EntityTypeMapping TypeName="DataModel.Feedback">
+        <MappingFragment StoreEntitySet="Feedback">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="suggest" ColumnName="suggest" />
+          <ScalarProperty Name="device" ColumnName="device" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="cdate" ColumnName="cdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Keys">
+      <EntityTypeMapping TypeName="DataModel.Keys">
+        <MappingFragment StoreEntitySet="Keys">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="keys1" ColumnName="keys" />
+          <ScalarProperty Name="maxc" ColumnName="maxc" />
+          <ScalarProperty Name="curr" ColumnName="curr" />
+          <ScalarProperty Name="ver" ColumnName="ver" />
+          <ScalarProperty Name="cdate" ColumnName="cdate" />
+          <ScalarProperty Name="mark" ColumnName="mark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Knowledge">
+      <EntityTypeMapping TypeName="DataModel.Knowledge">
+        <MappingFragment StoreEntitySet="Knowledge">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="artical" ColumnName="artical" />
+          <ScalarProperty Name="cdate" ColumnName="cdate" />
+          <ScalarProperty Name="cuser" ColumnName="cuser" />
+          <ScalarProperty Name="edate" ColumnName="edate" />
+          <ScalarProperty Name="euser" ColumnName="euser" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="cread" ColumnName="cread" />
+          <ScalarProperty Name="valid" ColumnName="valid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Quotations">
+      <EntityTypeMapping TypeName="DataModel.Quotations">
+        <MappingFragment StoreEntitySet="Quotations">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="sentence" ColumnName="sentence" />
+          <ScalarProperty Name="cdate" ColumnName="cdate" />
+          <ScalarProperty Name="tips" ColumnName="tips" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="DataModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="psd" ColumnName="psd" />
+          <ScalarProperty Name="roles" ColumnName="roles" />
+          <ScalarProperty Name="nickname" ColumnName="nickname" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="valid" ColumnName="valid" />
+          <ScalarProperty Name="cdate" ColumnName="cdate" />
+          <ScalarProperty Name="mark" ColumnName="mark" />
+          <ScalarProperty Name="head" ColumnName="head" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Video">
+      <EntityTypeMapping TypeName="DataModel.Video">
+        <MappingFragment StoreEntitySet="Video">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="url" ColumnName="url" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Article">
+      <EntityTypeMapping TypeName="DataModel.Article">
+        <MappingFragment StoreEntitySet="Article">
+          <ScalarProperty Name="valid" ColumnName="valid" />
+          <ScalarProperty Name="cread" ColumnName="cread" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="euser" ColumnName="euser" />
+          <ScalarProperty Name="edate" ColumnName="edate" />
+          <ScalarProperty Name="cuser" ColumnName="cuser" />
+          <ScalarProperty Name="cdate" ColumnName="cdate" />
+          <ScalarProperty Name="artical" ColumnName="artical" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Category">
+      <EntityTypeMapping TypeName="DataModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="catename" ColumnName="catename" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
