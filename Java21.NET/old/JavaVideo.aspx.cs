@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 
 namespace Java21.NET
 {
@@ -452,6 +453,134 @@ namespace Java21.NET
                 res.Append(s);
             }
             txtValue.Text = res.ToString();
+        }
+
+        private List<String> getAudio(String text)
+        {
+            List<String> res = new List<String>();
+            bool comma = false, zkh = false;
+            string tmp = "";
+            for (int i = 0; i < text.Length; i++)
+            {
+                string s = text.Substring(i, 1);
+                if (s.Equals("("))
+                {
+                    comma = true;
+                    tmp = "(";
+                }
+                else if (s.Equals("["))
+                {
+                    zkh = true;
+                    if (comma)
+                        tmp += "[";
+                    else
+                        tmp = "[";
+                }
+                else if (s.Equals("]"))
+                {
+                    zkh = false;
+                    tmp += "]";
+                    if (!comma)
+                    {
+                        res.Add(tmp);
+                        tmp = "";
+                    }
+                }
+                else if (s.Equals(")"))
+                {
+                    comma = false;
+                    tmp += ")";
+                    res.Add(tmp);
+                    tmp = "";
+                }
+                else
+                {
+                    if (comma || zkh)
+                        tmp += s;
+                    else
+                        res.Add(s);
+                }
+            }
+            return res;
+        }
+
+        private string removeKuohao(string s)
+        {
+            return s.Replace("(", "").Replace(")", "");
+        }
+
+        private string merge(string l, string r)
+        {
+            if (l.Equals("-") || l.Equals("_"))
+            {
+                if (r.Equals("-") || r.Equals("_"))
+                    return "-";
+                else
+                    return r;
+            }
+            if (r.Equals("-") || r.Equals("_"))
+            {
+                return l;
+            }
+            if (l.StartsWith("("))
+                l = removeKuohao(l);
+            if (r.StartsWith("("))
+                r = removeKuohao(r);
+            return "(" + l + r + ")";
+        }
+
+        private string mergeAudio(String a, String b)
+        {
+            List<String> audio1 = getAudio(a.Replace("\r",""));
+            List<String> audio2 = getAudio(b.Replace("\r", ""));
+            if (audio1.Count > 0 && audio2.Count > 0)
+            {
+                StringBuilder sb = new StringBuilder();
+                int count = audio1.Count > audio2.Count ? audio1.Count : audio2.Count;
+                string left = "", right = "";
+                for (int i = 0; i < count; i++)
+                {
+                    if (audio1.Count > i)
+                        left = audio1[i];
+                    if (audio2.Count > i)
+                        right = audio2[i];
+                    if (!string.IsNullOrEmpty(left))
+                    {
+                        if (!string.IsNullOrEmpty(right))
+                            sb.Append(merge(left, right));
+                        else
+                            sb.Append(left.Replace('_', '-'));
+                    }
+                    else
+                    {
+                        if (!string.IsNullOrEmpty(right))
+                            sb.Append(right.Replace('_', '-'));
+                    }
+                    left = right = "";
+                }
+                return sb.ToString();
+            }
+            else if (audio1.Count > 0 && audio2.Count == 0)
+                return a.Replace('_', '-');
+            else if (audio1.Count == 0 && audio2.Count > 0)
+                return b.Replace('_', '-');
+            return "";
+        }
+
+        protected void btnMerge_Click(object sender, EventArgs e)
+        {
+            string[] audio1 = txtAudio1.Text.Split('\n');
+            string[] audio2 = txtAudio2.Text.Split('\n');
+            if (audio1.Length == audio2.Length)
+            {
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < audio1.Length; i++)
+                {
+                    sb.Append(mergeAudio(audio1[i], audio2[i]));
+                    sb.Append("<br />");
+                }
+                txtAudio3.Text = sb.ToString();
+            }
         }
     }
 }
