@@ -1,8 +1,8 @@
 <%@ WebHandler  Language="C#"  Class="getContent" %>
 /**
  * Created by visual studio 2010
- * User: xuheng
- * Date: 12-3-6
+ * User: Vbea
+ * Date: 15-3-6
  * Time: 下午21:23
  * To get the value of editor and output the value .
  */
